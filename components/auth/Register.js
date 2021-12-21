@@ -103,6 +103,12 @@ export class Register extends Component {
     return (
       <DismissKeyboard>
         <View style={styles.container}>
+          <Pressable
+            onPress={() => this.props.navigation.goBack()}
+            style={[styles.button, styles.backButton]}
+          >
+            <Text style={styles.text}>Back</Text>
+          </Pressable>
           <TextInput
             style={styles.inputStyle}
             placeholder="username"
@@ -289,6 +295,11 @@ const styles = StyleSheet.create({
   },
   loading: {
     marginLeft: 20,
+  },
+  backButton: {
+    position: "absolute",
+    top: 5,
+    left: 20,
   },
 });
 

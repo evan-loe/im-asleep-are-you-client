@@ -11,6 +11,7 @@ import LoginScreen from "./components/auth/Login";
 
 import { auth } from "./firebase/firebase-config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { theme } from "./components/theme/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -67,8 +68,12 @@ export class App extends Component {
               component={LandingScreen}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="Register" component={RegisterScreen} />
-            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen
+              name="Register"
+              component={RegisterScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
           </Stack.Navigator>
         </NavigationContainer>
       );
@@ -83,19 +88,21 @@ export class App extends Component {
   }
 }
 
+const headerStyle = {
+  backgroundColor: theme.light_pink,
+  borderColor: theme.white,
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: theme.white,
     alignItems: "center",
     justifyContent: "center",
   },
   loading: {
     flex: 1,
     justifyContent: "center",
-  },
-  header: {
-    backgroundColor: "#f4511e",
   },
 });
 
